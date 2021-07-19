@@ -1,0 +1,27 @@
+name: 'OBS: Submit Package'
+description: 'Build and submit package.'
+inputs:
+  packaging:
+    description: 'packaging info directory'
+    required: false
+    default: '/package'
+  project_id:
+    description: 'Project identifier. Eg. '
+    required: true
+  package_name:
+    description: 'Package name. Eg. '
+    required: true
+  obs_api_user:
+     description: 'OBS Api user'
+     required: true
+  obs_api_secret:
+    description: 'OBS Api secret'
+    required: true
+outputs:
+  status: # id of output
+    description: 'Status of submit request'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
